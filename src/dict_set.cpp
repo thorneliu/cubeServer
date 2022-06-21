@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "cube/dict_set.h"
+#include "dict_set.h"
 
 namespace rec {
 namespace mcube {
@@ -33,8 +33,7 @@ void DictSet::set_base_dict(const VirtualDict* dict) {
   }
 }
 
-int DictSet::load(const std::vector<std::string>& dict_path,
-                  bool in_mem,
+int DictSet::load(const std::vector<std::string>& dict_path, bool in_mem,
                   const std::string& v_path) {
   if ((uint32_t)_dict_split != dict_path.size()) {
     return E_DATA_ERROR;

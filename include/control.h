@@ -16,11 +16,10 @@
 
 #include <string>
 
-#include "proto/control.pb.h"
-
 #include "butil/third_party/rapidjson/document.h"
 #include "butil/third_party/rapidjson/prettywriter.h"
 #include "butil/third_party/rapidjson/stringbuffer.h"
+#include "proto/control.pb.h"
 
 namespace rec {
 namespace mcube {

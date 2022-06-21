@@ -231,9 +231,9 @@ class slim_hash_map {
                    << sizeof(hash_node_t) * BLOCK_SIZE;
         return -1;
       }
-      LOG(INFO) << "copy data, m_nBlockNum: " << m_nBlockNum << " , copy size:" << sizeof(hash_node_t) * BLOCK_SIZE;
-      memcpy(m_blockAddr[m_nBlockNum],
-             rhs.m_blockAddr[m_nBlockNum],
+      LOG(INFO) << "copy data, m_nBlockNum: " << m_nBlockNum
+                << " , copy size:" << sizeof(hash_node_t) * BLOCK_SIZE;
+      memcpy(m_blockAddr[m_nBlockNum], rhs.m_blockAddr[m_nBlockNum],
              sizeof(hash_node_t) * BLOCK_SIZE);
     }
 
@@ -271,7 +271,7 @@ class slim_hash_map {
       node_cnt++;
       node = get_node(node->next);
     }
-    LOG(INFO) << "key: " << key << " , found count: " << node_cnt;  
+    LOG(INFO) << "key: " << key << " , found count: " << node_cnt;
     if (node == NULL) {
       return end();
     }
@@ -402,7 +402,8 @@ class slim_hash_map {
   }
   bool load(const char* file, uint32_t block_id) {
     // clear();
-    // bias = 0 means base mode, bias = K means patch mode, and base dict has size K
+    // bias = 0 means base mode, bias = K means patch mode, and base dict has
+    // size K
     int size = sizeof(key_t) + sizeof(value_t);
     FILE* fp = fopen(file, "rb");
     char* buf = reinterpret_cast<char*>(malloc(size * 100000));
@@ -425,7 +426,7 @@ class slim_hash_map {
         key = *(reinterpret_cast<key_t*>(buf + i * size));
         value = *(reinterpret_cast<value_t*>(buf + i * size + sizeof(key_t)));
         value = ((uint64_t)block_id << 32) | value;
-        LOG(INFO) << "slim map key: " << key << " , value: " << value; 
+        LOG(INFO) << "slim map key: " << key << " , value: " << value;
         (*this)[key] = value;
       }
     }
@@ -440,16 +441,16 @@ class slim_hash_map {
   }
 
   /**
-  * @brief    dump data in memory into file.
-  *           DUMP_GRANULARITYs entry will dump every execution.
-  *
-  * @param    file    the file name to store the data
-  *
-  * @return   -1: failed to dump data;
-  *           0 : complete the dumping;
-  *           greater than 0: the index of the entry in hashtable where dump job
-  * goes
-  */
+   * @brief    dump data in memory into file.
+   *           DUMP_GRANULARITYs entry will dump every execution.
+   *
+   * @param    file    the file name to store the data
+   *
+   * @return   -1: failed to dump data;
+   *           0 : complete the dumping;
+   *           greater than 0: the index of the entry in hashtable where dump
+   * job goes
+   */
   int save(const char* file) {
     static const int FACTOR = 1000;
     bool writerErr = false;
@@ -571,7 +572,9 @@ class slim_hash_map {
     }
 
     uint32_t block = ((m_nNextEntry & 0xFF800000) >> 23);
-    //LOG(INFO) << "key: " << key << " here. index: " << index << " , m_nNextEntry: "<< m_nNextEntry << " , block:" << block<< ", m_nBlockNum:" << m_nBlockNum;
+    // LOG(INFO) << "key: " << key << " here. index: " << index << " ,
+    // m_nNextEntry: "<< m_nNextEntry << " , block:" << block<< ", m_nBlockNum:"
+    // << m_nBlockNum;
     if (block >= m_nBlockNum) {
       try {
         m_blockAddr[m_nBlockNum++] = new hash_node_t[BLOCK_SIZE];

@@ -21,9 +21,9 @@
 #include <string>
 #include <vector>
 
-#include "cube/rw_lock.h"
-#include "cube/slim_hash_map.h"
-#include "cube/virtual_dict.h"
+#include "rw_lock.h"
+#include "slim_hash_map.h"
+#include "virtual_dict.h"
 
 namespace rec {
 namespace mcube {
@@ -44,8 +44,7 @@ class Dict : public VirtualDict {
     _base_dict = static_cast<const Dict*>(dict);
   }
 
-  int load(const std::string& dict_path,
-           bool in_mem,
+  int load(const std::string& dict_path, bool in_mem,
            const std::string& v_path);
 
   int destroy();

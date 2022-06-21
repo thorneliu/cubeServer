@@ -17,7 +17,7 @@
 #include <string>
 #include <vector>
 
-#include "cube/error.h"
+#include "error.h"
 
 namespace rec {
 namespace mcube {
@@ -28,15 +28,13 @@ class VirtualDict {
 
   virtual ~VirtualDict() {}
 
-  virtual int load(const std::string& /*dict_path*/,
-                   bool /*in_mem*/,
+  virtual int load(const std::string& /*dict_path*/, bool /*in_mem*/,
                    const std::string& /*v_path*/) {
     return E_NOT_IMPL;
   }
 
   virtual int load(const std::vector<std::string>& /*dict_path*/,
-                   bool /*in_mem*/,
-                   const std::string& /*v_path*/) {
+                   bool /*in_mem*/, const std::string& /*v_path*/) {
     return E_NOT_IMPL;
   }
 

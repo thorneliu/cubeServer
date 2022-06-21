@@ -21,7 +21,7 @@
 namespace bvar {
 DECLARE_bool(bvar_dump);
 DECLARE_string(bvar_dump_file);
-}
+}  // namespace bvar
 
 namespace rec {
 namespace mcube {

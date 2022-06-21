@@ -13,9 +13,9 @@
 // limitations under the License.
 
 #include <brpc/channel.h>
-#include "gtest/gtest.h"
 
-#include "cube/control.h"
+#include "control.h"
+#include "gtest/gtest.h"
 
 namespace rec {
 namespace mcube {

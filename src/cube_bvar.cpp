@@ -12,20 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "cube/cube_bvar.h"
+#include "cube_bvar.h"
 
 namespace rec {
 namespace mcube {
 
 bvar::IntRecorder g_keys_num;
-bvar::Window<bvar::IntRecorder> g_keys_win("keys_per_request_num",
-                                           &g_keys_num,
+bvar::Window<bvar::IntRecorder> g_keys_win("keys_per_request_num", &g_keys_num,
                                            bvar::FLAGS_bvar_dump_interval);
 
 bvar::Adder<uint64_t> g_request_num("request_num");
 bvar::Window<bvar::Adder<uint64_t>> g_request_num_minute("request_num_minute",
-                                                         &g_request_num,
-                                                         60);
+                                                         &g_request_num, 60);
 
 bvar::IntRecorder g_data_load_time("data_load_time");
 

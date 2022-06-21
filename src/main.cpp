@@ -12,21 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include <signal.h>
-#include <sys/stat.h>
-
 #include <brpc/server.h>
 #include <gflags/gflags.h>
 #include <glog/logging.h>
+#include <signal.h>
+#include <sys/stat.h>
 
-#include "cube/control.h"
-#include "cube/framework.h"
-#include "cube/server.h"
+#include "control.h"
+#include "framework.h"
+#include "server.h"
 
 DEFINE_int32(port, 8000, "TCP Port of this server");
 DEFINE_int32(dict_split, 1, "data dict split for dictset");
-DEFINE_bool(in_mem,
-            true,
+DEFINE_bool(in_mem, true,
             "True[load data into memory] False[mmap data in disk]");
 DECLARE_string(flagfile);
 

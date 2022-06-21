@@ -12,19 +12,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include "framework.h"
+
 #include <pthread.h>
+
 #include <fstream>
 #include <sstream>
 
-#include "cube/cube_bvar.h"
-#include "cube/dict.h"
-#include "cube/dict_set.h"
-#include "cube/framework.h"
-#include "cube/recycle.h"
+#include "cube_bvar.h"
+#include "dict.h"
+#include "dict_set.h"
+#include "recycle.h"
 
 using BUTIL_RAPIDJSON_NAMESPACE::Document;
-using BUTIL_RAPIDJSON_NAMESPACE::Value;
 using BUTIL_RAPIDJSON_NAMESPACE::StringRef;
+using BUTIL_RAPIDJSON_NAMESPACE::Value;
 
 namespace {
 static ::rec::mcube::Framework* g_instance = NULL;

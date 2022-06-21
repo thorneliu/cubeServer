@@ -18,8 +18,8 @@
 #include <string>
 #include <vector>
 
-#include "cube/dict.h"
-#include "cube/virtual_dict.h"
+#include "dict.h"
+#include "virtual_dict.h"
 
 namespace rec {
 namespace mcube {
@@ -30,8 +30,7 @@ class DictSet : public VirtualDict {
 
   virtual ~DictSet();
 
-  virtual int load(const std::vector<std::string>& dict_path,
-                   bool in_mem,
+  virtual int load(const std::vector<std::string>& dict_path, bool in_mem,
                    const std::string& v_path);
 
   virtual int destroy();

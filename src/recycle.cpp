@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "cube/recycle.h"
+#include "recycle.h"
 
 namespace {
 using rec::mcube::Recycle;
 static Recycle* g_instance = NULL;
-}
+}  // namespace
 
 namespace rec {
 namespace mcube {
@@ -44,9 +44,7 @@ int Recycle::init() {
   _running = true;
 
   // init thread;
-  if (pthread_create(&_recycle_thread,
-                     NULL,
-                     Recycle::recycle_func,
+  if (pthread_create(&_recycle_thread, NULL, Recycle::recycle_func,
                      reinterpret_cast<void*>(this)) != 0) {
     LOG(ERROR) << "init recycle thread failed";
     return -1;

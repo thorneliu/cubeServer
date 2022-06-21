@@ -12,10 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include "control.h"
+
 #include <brpc/server.h>
 
-#include "cube/control.h"
-#include "cube/framework.h"
+#include "framework.h"
 
 namespace rec {
 namespace mcube {
@@ -23,13 +24,13 @@ namespace mcube {
 using ::rec::mcube::HttpRequest;
 using ::rec::mcube::HttpResponse;
 
-using ::google::protobuf::RpcController;
 using ::google::protobuf::Closure;
+using ::google::protobuf::RpcController;
 
+using ::brpc::ClosureGuard;
+using ::brpc::Controller;
 using ::brpc::HttpHeader;
 using ::brpc::URI;
-using ::brpc::Controller;
-using ::brpc::ClosureGuard;
 
 using BUTIL_RAPIDJSON_NAMESPACE::Document;
 

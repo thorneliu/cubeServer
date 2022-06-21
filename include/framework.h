@@ -21,10 +21,9 @@
 #include "butil/third_party/rapidjson/document.h"
 #include "butil/third_party/rapidjson/prettywriter.h"
 #include "butil/third_party/rapidjson/stringbuffer.h"
-
+#include "rw_lock.h"
+#include "virtual_dict.h"
 #include "proto/cube.pb.h"
-#include "cube/rw_lock.h"
-#include "cube/virtual_dict.h"
 
 namespace rec {
 namespace mcube {

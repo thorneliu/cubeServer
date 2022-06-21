@@ -15,9 +15,10 @@
 #pragma once
 
 #include <pthread.h>
+
 #include <queue>
 
-#include "cube/dict.h"
+#include "dict.h"
 
 namespace rec {
 namespace mcube {
